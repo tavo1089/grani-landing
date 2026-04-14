@@ -17,7 +17,6 @@
   --white: #ffffff;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 
 body{
@@ -25,6 +24,150 @@ body{
   color:var(--text);
   font-family:'Jost',sans-serif;
   font-weight:300;
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(44,34,24,0.16);
+  background: rgba(255,255,255,0.72);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-toggle:hover {
+  transform: translateY(-1px);
+  background: #fff;
+  border-color: rgba(44,34,24,0.28);
+}
+
+.nav-toggle-bar {
+  position: relative;
+  width: 18px;
+  height: 2px;
+  background: #2c2218;
+  transition: background 0.2s ease;
+}
+
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: #2c2218;
+  transition: transform 0.25s ease, top 0.25s ease;
+}
+
+.nav-toggle-bar::before {
+  top: -6px;
+}
+
+.nav-toggle-bar::after {
+  top: 6px;
+}
+
+.nav-toggle.is-open .nav-toggle-bar {
+  background: transparent;
+}
+
+.nav-toggle.is-open .nav-toggle-bar::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.is-open .nav-toggle-bar::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.nav-mobile {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  background: rgba(249,246,241,0.98);
+  border-bottom: 1px solid #c9a87c;
+  backdrop-filter: blur(12px);
+  padding: 16px 20px 22px;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.nav-mobile.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-mobile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-mobile-list a {
+  display: block;
+  text-decoration: none;
+  color: #2c2218;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 4px;
+  border-bottom: 1px solid rgba(201,168,124,0.2);
+}
+
+.nav-mobile-list .nav-cta-btn {
+  margin-top: 8px;
+  text-align: center;
+  border-bottom: none;
+}
+
+body.nav-menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  #main-nav {
+    padding: 0 18px !important;
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-mobile {
+    display: none;
+  }
 }
 
 /* NAV */
@@ -668,14 +811,27 @@ section{padding:96px 48px;}
     <span style="font-family:Georgia,serif;font-size:1.4rem;font-weight:normal;letter-spacing:0.22em;color:#2c2218;text-transform:uppercase;">GRANI</span>
     <span style="font-family:Georgia,serif;font-size:0.55rem;letter-spacing:0.22em;color:#9c8a78;text-transform:uppercase;">producción artesanal</span>
   </a>
-  <ul style="display:flex;gap:32px;list-style:none;margin:0;padding:0;align-items:center;">
+  <ul class="nav-desktop">
     <li><a class="nav-link" href="#productos">Productos</a></li>
     <li><a class="nav-link" href="#nosotros">Nosotros</a></li>
     <li><a class="nav-link" href="#galeria">Galería</a></li>
     <li><a class="nav-link" href="#donde">Dónde comprar</a></li>
     <li><a class="nav-cta-btn" href="#contacto">Contacto</a></li>
   </ul>
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+    <span class="nav-toggle-bar"></span>
+  </button>
 </nav>
+
+<div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <ul class="nav-mobile-list">
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#donde">Dónde comprar</a></li>
+    <li><a class="nav-cta-btn" href="#contacto">Contacto</a></li>
+  </ul>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1115,13 +1271,41 @@ function openLb(s) {
 }
 function closeLb() { document.getElementById('lb').classList.remove('open'); }
 
+// Mobile nav
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+
+function setNavOpen(isOpen) {
+  if (!navToggle || !navMobile) return;
+  navToggle.classList.toggle('is-open', isOpen);
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  navMobile.classList.toggle('is-open', isOpen);
+  navMobile.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  document.body.classList.toggle('nav-menu-open', isOpen);
+}
+
+if (navToggle && navMobile) {
+  navToggle.addEventListener('click', () => {
+    setNavOpen(!navMobile.classList.contains('is-open'));
+  });
+
+  navMobile.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setNavOpen(false));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) setNavOpen(false);
+  });
+}
+
 // Scroll animations
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
   });
 }, {threshold:0.08});
-nt.querySelectorAll('.product-card,.loc,.contact-card,.aval,.gi').forEach(el => {
+document.querySelectorAll('.product-card,.loc,.contact-card,.aval,.gi').forEach(el => {
   el.style.opacity='0';
   el.style.transform='translateY(16px)';
   el.style.transition='opacity 0.6s ease, transform 0.6s ease';
