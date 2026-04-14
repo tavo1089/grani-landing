@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap — reemplazar con dominio real cuando exista
+Sitemap: https://[DOMINIO O URL VERCEL]/sitemap.xml
