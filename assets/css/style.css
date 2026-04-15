@@ -694,6 +694,14 @@ section{padding:96px 48px;}
   #contacto { padding: 64px 24px; }
 }
 
+@media(max-width:768px){
+  #carousel-mantequilla { background: #f5efe6; }
+  #carousel-mantequilla img {
+    object-fit: contain;
+    object-position: center center;
+  }
+}
+
 
 /* FLOATS */
 .wa-float,.ig-float{
