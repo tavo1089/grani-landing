@@ -695,9 +695,11 @@ section{padding:96px 48px;}
 }
 
 @media(max-width:768px){
-  #carousel-mantequilla { background: #f5efe6; }
+  #carousel-mantequilla {
+    height: 320px;
+  }
   #carousel-mantequilla img {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
   }
 }
