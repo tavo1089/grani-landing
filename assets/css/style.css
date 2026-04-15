@@ -155,7 +155,7 @@ body{
 .nav-mobile-list .nav-cta-btn {
   margin-top: 8px;
   text-align: center;
-  border-bottom: none;
+  border-bottom: 1px solid #8b6347;
 }
 
 body.nav-menu-open {
