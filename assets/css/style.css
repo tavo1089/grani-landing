@@ -1,4 +1,36 @@
-﻿
+﻿.logo-stack {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 13px;
+  overflow: hidden;
+  vertical-align: middle;
+  line-height: 1;
+}
+.logo-main {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  letter-spacing: 0.22em;
+  color: #2c2218;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: block;
+}
+.logo-sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: Georgia, serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.13em;
+  color: #9c8a78;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 

@@ -1,4 +1,13 @@
-﻿// Carousel
+﻿// Ajusta el ancho de .logo-sub para que coincida con .logo-main
+window.addEventListener('DOMContentLoaded', function() {
+  var main = document.querySelector('.logo-main');
+  var sub = document.querySelector('.logo-sub');
+  if (main && sub) {
+    var mainWidth = main.offsetWidth;
+    sub.style.width = mainWidth + 'px';
+  }
+});
+// Carousel
 const cs = {};
 function moveSlide(uid, dir) {
   const w = document.getElementById(uid);
