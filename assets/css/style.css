@@ -1087,7 +1087,15 @@ body.dark-mode .product-card { background: var(--white) !important; }
 body.dark-mode .c-dot { background: rgba(201,168,124,0.3) !important; }
 body.dark-mode .c-dot.active { background: var(--accent2) !important; }
 
-/* Nav-toggle bars (hamburguesa) */
+/* Nav-toggle (hamburguesa) */
+body.dark-mode .nav-toggle {
+  background: rgba(30,22,14,0.85) !important;
+  border-color: rgba(201,168,124,0.2) !important;
+}
+body.dark-mode .nav-toggle:hover {
+  background: rgba(42,30,18,0.95) !important;
+  border-color: rgba(201,168,124,0.4) !important;
+}
 body.dark-mode .nav-toggle-bar,
 body.dark-mode .nav-toggle-bar::before,
 body.dark-mode .nav-toggle-bar::after {
