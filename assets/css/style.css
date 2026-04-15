@@ -707,8 +707,11 @@ section{padding:96px 48px;}
   .nav-links{display:none;}
   .hero-inner{grid-template-columns:1fr;gap:40px;}
   .hero-visual{order:-1;}
-  .about-grid{grid-template-columns:1fr;gap:40px;}
-  .about-img-float{display:none;}
+  .about-grid{grid-template-columns:1fr;gap:32px;}
+  .about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:static;}
+  .about-img-main{aspect-ratio:1/1;width:100%;}
+  .about-img-float{position:static !important;width:100% !important;aspect-ratio:1/1 !important;border:none !important;box-shadow:none !important;bottom:auto !important;right:auto !important;}
+  .about-text{order:2;}
   section{padding:72px 24px;}
   .gallery-grid{grid-template-columns:repeat(3,1fr);aspect-ratio:1/1;}
   .contact-grid{grid-template-columns:1fr;}
