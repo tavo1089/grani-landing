@@ -1,4 +1,19 @@
-﻿// Comprime .logo-sub para que no sobrepase el ancho de .logo-main
+﻿// Modo noche
+(function() {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+  });
+})();
+
+// Comprime .logo-sub para que no sobrepase el ancho de .logo-main
 function fitLogoSub() {
   var main = document.querySelector('.logo-main');
   var sub = document.querySelector('.logo-sub');

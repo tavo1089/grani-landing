@@ -8,3 +8,14 @@
   --line: rgba(139,99,71,0.15);
   --white: #ffffff;
 }
+
+body.dark-mode {
+  --bg: #1e160e;
+  --bg2: #261b11;
+  --text: #ede4d4;
+  --muted: #a89078;
+  --accent: #c9a87c;
+  --accent2: #d4b483;
+  --line: rgba(201,168,124,0.12);
+  --white: #2a1e12;
+}
