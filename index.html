@@ -21,10 +21,10 @@
 <!-- NAV -->
 <nav id="main-nav" style="position:fixed;top:0;left:0;right:0;width:100%;z-index:9999;height:64px;background:#f9f6f1;border-bottom:1px solid #c9a87c;display:flex;align-items:center;justify-content:space-between;padding:0 48px;box-sizing:border-box;">
   <a href="#" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
-    <span style="display:flex;flex-direction:column;line-height:1.2;">
-      <span style="font-family:Georgia,serif;font-size:1.4rem;font-weight:normal;letter-spacing:0.22em;color:#2c2218;text-transform:uppercase;">GRANI</span>
-      <span style="font-family:Georgia,serif;font-size:0.55rem;letter-spacing:0.22em;color:#9c8a78;text-transform:uppercase;">producción artesanal</span>
-    </span>
+      <span class="logo-stack">
+        <span class="logo-main">GRANI</span>
+        <span class="logo-sub">producción artesanal</span>
+      </span>
     <img src="assets/img/WhatsApp Image 2026-04-12 at 20.48.25.jpeg" alt="GRANI" style="height:48px;width:auto;border-radius:50%;">
   </a>
   <ul class="nav-desktop">
@@ -55,7 +55,7 @@
   <div class="hero-inner">
     <div class="hero-text">
       <span class="hero-label">✦ Uruguay · Producción artesanal</span>
-      <h1>Granola<br>hecha con<br><em>amor</em></h1>
+      <h1>Granola<br>hecha en<br><em>casa</em></h1>
       <p>Sin conservantes, sin artificiales. Solo ingredientes reales, seleccionados con cuidado y tostados artesanalmente en Uruguay.</p>
       <div class="hero-btns">
         <a href="#productos" class="btn btn-dark">Ver productos</a>
@@ -112,7 +112,7 @@
       <div class="product-body">
         <span class="product-tag">Granola</span>
         <h3 class="product-name">GRANI Clásica</h3>
-        <p class="product-desc">Nuestro blend original. Avena, frutos secos, semillas y un toque de miel y aceite de coco.</p>
+        <p class="product-desc">Nuestra combinación original. Avena, avellanas, muchos frutos secos y una variación de semillas en conjunto con un toque de miel y aceite de coco.</p>
         <div class="product-prices">
           <div class="price-row"><span class="price-w">250 gr</span><span class="price-a">$270</span></div>
           <div class="price-row"><span class="price-w">500 gr</span><span class="price-a">$490</span></div>
@@ -125,8 +125,8 @@
     <!-- Prote -->
     <div class="product-card">
       <div class="carousel" id="carousel-prote">
-<img src="assets/img/granola-horno.jpg" alt="GRANI Prote 1">
 <img src="assets/img/ref-product-2.jpg" alt="GRANI Prote 2">
+<img src="assets/img/granola-horno.jpg" alt="GRANI Prote 1">
 <button class="c-btn c-prev" onclick="moveSlide('carousel-prote',-1)">‹</button>
 <button class="c-btn c-next" onclick="moveSlide('carousel-prote',1)">›</button>
 <div class="c-dots"><span class="c-dot active" onclick="setSlide('carousel-prote',0)"></span><span class="c-dot" onclick="setSlide('carousel-prote',1)"></span></div>
@@ -134,10 +134,10 @@
       <div class="product-body">
         <span class="product-tag">Alto en proteína</span>
         <h3 class="product-name">GRANI Prote</h3>
-        <p class="product-desc">Con proteína de soja, leche en polvo y una selección especial de frutos secos para un aporte proteico extra.</p>
+        <p class="product-desc">Con proteína de soja, leche en polvo y una selección especial de frutos secos para un aporte proteico extra. Realzando su sabor con la sutileza de la vainilla.</p>
         <div class="product-prices">
-          <div class="price-row"><span class="price-w">250 gr</span><span class="price-a">$270</span></div>
-          <div class="price-row"><span class="price-w">500 gr</span><span class="price-a">$490</span></div>
+          <div class="price-row"><span class="price-w">250 gr</span><span class="price-a">$290</span></div>
+          <div class="price-row"><span class="price-w">500 gr</span><span class="price-a">$500</span></div>
         </div>
         <button class="ing-toggle" onclick="toggleIng(this)"><span class="arr">+</span> Ingredientes</button>
         <div class="ing-list">Avena Laminada · Almendras · Castañas de Cajú · Maní · Avellanas · Pasas de Uvas · Nueces · Coco Rallado · Proteína de Soja · Leche en Polvo · Esencia de Vainilla · Copos de Maíz · Aceite de Coco · Miel · Semillas de Sésamo · Semillas de Chía · Semillas de Lino</div>
@@ -147,22 +147,22 @@
     <!-- Choco -->
     <div class="product-card">
       <div class="carousel" id="carousel-choco">
-<img src="assets/img/ref-product-5.jpg" alt="GRANI Choco 1">
+<img src="assets/img/WhatsApp Image 2026-04-15 at 12.04.19.jpeg" alt="GRANI Choco 1" style="width: 100%; height: 100%; object-fit: cover; object-position: center 60%; border-radius: 12px;">
 <img src="assets/img/ref-product-6.jpg" alt="GRANI Choco 2">
 <button class="c-btn c-prev" onclick="moveSlide('carousel-choco',-1)">‹</button>
 <button class="c-btn c-next" onclick="moveSlide('carousel-choco',1)">›</button>
 <div class="c-dots"><span class="c-dot active" onclick="setSlide('carousel-choco',0)"></span><span class="c-dot" onclick="setSlide('carousel-choco',1)"></span></div>
 </div>
       <div class="product-body">
-        <span class="product-tag">Granola</span>
+        <span class="product-tag">Versión Dulcera</span>
         <h3 class="product-name">GRANI Choco</h3>
-        <p class="product-desc">Chips de chocolate artesanal con frutos secos y semillas. Para cuando querés algo rico y nutritivo al mismo tiempo.</p>
+        <p class="product-desc">Para cuando querés algo rico y nutritivo al mismo tiempo. Chips de chocolate en conjunto con coco rallado para buscar la versión más tentadora para los amantes de lo dulce.</p>
         <div class="product-prices">
           <div class="price-row"><span class="price-w">250 gr</span><span class="price-a">$270</span></div>
           <div class="price-row"><span class="price-w">500 gr</span><span class="price-a">$490</span></div>
         </div>
         <button class="ing-toggle" onclick="toggleIng(this)"><span class="arr">+</span> Ingredientes</button>
-        <div class="ing-list">Avena Laminada · Almendras · Castañas de Cajú · Maní · Avellanas · Nueces · Chips de Chocolate · Coco en Escamas · Semillas de Girasol · Copos de Maíz · Aceite de Coco · Miel · Semillas de Sésamo · Semillas de Chía · Semillas de Lino</div>
+        <div class="ing-list">Chips de Chocolate · Avena Laminada · Almendras · Castañas de Cajú · Maní · Avellanas · Nueces · Coco en Escamas · Semillas de Girasol · Copos de Maíz · Aceite de Coco · Miel · Semillas de Sésamo · Semillas de Chía · Semillas de Lino</div>
       </div>
     </div>
 
@@ -176,9 +176,9 @@
 <div class="c-dots"><span class="c-dot active" onclick="setSlide('carousel-mantequilla',0)"></span><span class="c-dot" onclick="setSlide('carousel-mantequilla',1)"></span></div>
 </div>
       <div class="product-body">
-        <span class="product-tag">Sin azúcar · Sin conservantes</span>
+        <span class="product-tag">Sin conservantes</span>
         <h3 class="product-name">Mantequilla de Maní</h3>
-        <p class="product-desc">100% maní tostado, procesado hasta la textura perfecta. Sin azúcar, sin sal, sin aceites vegetales añadidos.</p>
+        <p class="product-desc">100% maní tostado, procesado hasta la textura perfecta. Para untar en tus meriendas o probarla directamente como postre favorito</p>
         <div class="product-prices">
           <div class="price-row"><span class="price-w">280 gr</span><span class="price-a">$240</span></div>
         </div>
