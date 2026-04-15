@@ -1,12 +1,20 @@
-﻿// Ajusta el ancho de .logo-sub para que coincida con .logo-main
-window.addEventListener('DOMContentLoaded', function() {
+﻿// Comprime .logo-sub para que no sobrepase el ancho de .logo-main
+function fitLogoSub() {
   var main = document.querySelector('.logo-main');
   var sub = document.querySelector('.logo-sub');
   if (main && sub) {
+    sub.style.transform = '';
     var mainWidth = main.offsetWidth;
-    sub.style.width = mainWidth + 'px';
+    var subWidth = sub.scrollWidth;
+    if (subWidth > mainWidth) {
+      var scale = mainWidth / subWidth;
+      sub.style.transform = 'scaleX(' + scale + ')';
+      sub.style.transformOrigin = 'left center';
+    }
   }
-});
+}
+window.addEventListener('DOMContentLoaded', fitLogoSub);
+window.addEventListener('resize', fitLogoSub);
 // Carousel
 const cs = {};
 function moveSlide(uid, dir) {
