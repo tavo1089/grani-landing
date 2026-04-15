@@ -37,13 +37,65 @@ function openLb(s) {
 }
 function closeLb() { document.getElementById('lb').classList.remove('open'); }
 
+function bindLightbox() {
+  const lightbox = document.getElementById('lb');
+  const closeButton = lightbox ? lightbox.querySelector('.lb-close') : null;
+
+  document.querySelectorAll('.lb-trigger[data-lb-src]').forEach(item => {
+    item.addEventListener('click', () => openLb(item.dataset.lbSrc));
+  });
+
+  if (closeButton) {
+    closeButton.addEventListener('click', event => {
+      event.stopPropagation();
+      closeLb();
+    });
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) closeLb();
+    });
+  }
+}
+
+// Mobile nav
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+
+function setNavOpen(isOpen) {
+  if (!navToggle || !navMobile) return;
+  navToggle.classList.toggle('is-open', isOpen);
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  navMobile.classList.toggle('is-open', isOpen);
+  navMobile.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  document.body.classList.toggle('nav-menu-open', isOpen);
+}
+
+if (navToggle && navMobile) {
+  navToggle.addEventListener('click', () => {
+    setNavOpen(!navMobile.classList.contains('is-open'));
+  });
+
+  navMobile.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setNavOpen(false));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) setNavOpen(false);
+  });
+}
+
+bindLightbox();
+
 // Scroll animations
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
   });
 }, {threshold:0.08});
-nt.querySelectorAll('.product-card,.loc,.contact-card,.aval,.gi').forEach(el => {
+document.querySelectorAll('.product-card,.loc,.contact-card,.aval,.gi').forEach(el => {
   el.style.opacity='0';
   el.style.transform='translateY(16px)';
   el.style.transition='opacity 0.6s ease, transform 0.6s ease';
