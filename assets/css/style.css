@@ -1063,7 +1063,11 @@ body.dark-mode .nav-mobile {
 /* Secciones */
 body.dark-mode #contacto { background: var(--bg2) !important; }
 body.dark-mode .ct-card  { background: var(--white) !important; border-color: var(--line) !important; }
-body.dark-mode .ct-icon  { background: var(--bg2) !important; }
+body.dark-mode .ct-card:hover { background: #331f10 !important; }
+body.dark-mode .ct-icon  { background: var(--bg) !important; border-color: rgba(201,168,124,0.2) !important; }
+body.dark-mode .ct-lbl   { color: var(--accent2) !important; }
+body.dark-mode .ct-val   { color: var(--text) !important; }
+body.dark-mode .ct-sub   { color: var(--muted) !important; }
 
 /* Galería */
 body.dark-mode .gi-logo  { background: var(--white) !important; }
