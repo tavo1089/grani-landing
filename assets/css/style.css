@@ -993,6 +993,18 @@ section{padding:96px 48px;}
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.14);
 }
+.ft-credit {
+  font-family: Arial, sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.1);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+.ft-credit span {
+  color: rgba(201,168,124,0.35);
+  letter-spacing: 0.14em;
+}
 
 .loc-row-top {
   display: flex;
