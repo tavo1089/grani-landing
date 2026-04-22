@@ -1001,9 +1001,14 @@ section{padding:96px 48px;}
   margin-top: 6px;
   text-transform: uppercase;
 }
-.ft-credit span {
+.ft-credit-link {
   color: rgba(201,168,124,0.35);
   letter-spacing: 0.14em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ft-credit-link:hover {
+  color: rgba(201,168,124,0.7);
 }
 
 .loc-row-top {
